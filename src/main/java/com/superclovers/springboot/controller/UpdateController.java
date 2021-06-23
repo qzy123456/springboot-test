@@ -4,6 +4,7 @@ import com.superclovers.springboot.entity.GoodsEntity;
 import com.superclovers.springboot.service.IUpdateService;
 import com.superclovers.springboot.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 

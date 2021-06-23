@@ -26,4 +26,5 @@ public class GoodsController extends BaseController {
         // 返回
         return new ResponseResult<>(SUCCESS, data);
     }
+
 }

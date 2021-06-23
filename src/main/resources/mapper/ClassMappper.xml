@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.superclovers.springboot.mapper.ClassMapper">
+    <!-- List<ClassEntity> getClass();  -->
+    <select id="getClass" resultType="com.superclovers.springboot.entity.ClassEntity" resultMap="ClassResultMap">
+        SELECT * FROM class c, teacher t,student s WHERE c.teacher_id=t.t_id AND c.C_id=s.class_id AND  c.c_id=#{id}
+    </select>
+    <resultMap type="com.superclovers.springboot.entity.ClassEntity" id="ClassResultMap">
+                <id property="id" column="c_id"/>
+                 <result property="name" column="c_name"/>
+                 <!--association 表示只有一个-->
+                 <association property="teacher" javaType="com.superclovers.springboot.entity.TeacherEntity">
+                     <id property="id" column="t_id"/>
+                     <result property="name" column="t_name"/>
+                 </association>
+            <collection property="students" ofType="com.superclovers.springboot.entity.StudentEntity">
+                <id property="id" column="s_id"/>
+                <result property="name" column="s_name"/>
+            </collection>
+             </resultMap>
+
+
+</mapper>
